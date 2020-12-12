@@ -1,0 +1,10 @@
+@media (min-width: 1200px) {
+    .container{
+        max-width: 350px;
+    }
+}
+.alert-login
+{
+    margin-top: 30px;
+}
+
