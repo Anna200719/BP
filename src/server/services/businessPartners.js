@@ -1,35 +1,36 @@
-import dbData from "../dbs/db";
-import BusinessPartner from "../dbs/models/businessPartner"
+import dbData from '../dbs/db';
+import BusinessPartner from '../dbs/models/businessPartner';
 
-const getAllParners = function(){
-    return dbData.businessPartnersDB;
-}
+const getAllParners = () => dbData.businessPartnersDB;
 
-const addNewPartner = function(partner){
-    let bp = new BusinessPartner();
-    let partnerProps = {}
+const addNewPartnerByProperties = (partnerProps) => {
+  const bp = new BusinessPartner();
+  const allProperties = Object.values(partnerProps);
+  bp.addPartnerInfo(...allProperties);
+  dbData.businessPartnersDB[bp.cardCode] = bp;
+};
 
-    for (const pr in partner) 
-    {
-        partnerProps[partner[pr].name] = partner[pr].value
-    }
+const addNewPartner = (partner) => {
+  const partnerProps = {};
 
-    const props = Object.values(partnerProps);
-    bp.addPartnerInfo(...props)
-    dbData.businessPartnersDB[bp.cardCode] = bp;
-}
+  // exctracting all properties with values from html-form
+  Object.keys(partner).forEach((propIndex) => {
+    const property = partner[propIndex];
+    partnerProps[property.name] = property.value;
+  });
 
+  addNewPartnerByProperties(partnerProps);
+};
 
-const removePartner = function(id){
-    
-    if (id in dbData.businessPartnersDB){
-        console.log("found " + id + " in db")
-        delete dbData.businessPartnersDB[id]
-    }
-    else{
-        throw "Partner id not found in db"
-    }
-}
+const removePartner = (id) => {
+  if (id in dbData.businessPartnersDB) {
+    console.log(`found ${id} in db`);
+    delete dbData.businessPartnersDB[id];
+  } else {
+    throw new Error('Partner id not found in db');
+  }
+};
 
-const businessPartnersServices = { getAllParners , addNewPartner, removePartner, removePartner };
+const businessPartnersServices = { getAllParners, addNewPartner, removePartner };
+
 export default businessPartnersServices;

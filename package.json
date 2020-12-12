@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/server/app.js",
   "type": "module",
+  
   "scripts": {
     "start": "node --experimental-modules --es-module-specifier-resolution=node src/server/app.js",
     "test": "mocha --requre esm tests/loadAllContacts.test.js",
