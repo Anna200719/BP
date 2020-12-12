@@ -25,8 +25,6 @@ let logInDetailes = {
 }
 
 dbData.populateDB();
-//console.log("My array is: " + util.inspect(dbData.businessPartnersDB), { depth: null })
-
 app.get('/businesspartners', function (req, res, next) {
     try {
         const businesspartners = businessPartnersServices.getAllParners();
