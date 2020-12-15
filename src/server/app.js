@@ -1,8 +1,10 @@
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import router from './router';
 
 const app = express();
+app.use(cookieParser());
 
 const PORT = 3000;
 
