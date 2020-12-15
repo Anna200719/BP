@@ -98,8 +98,8 @@ function submitBPartner() {
     success() {
       $('#bp-form').hide();
     },
-    error(XMLHttpRequest) {
-      alert(XMLHttpRequest.responseJSON);
+    error(xhr) {
+      alert(JSON.parse(xhr.responseText));
     },
     dataType: 'json',
     contentType: 'application/json',
