@@ -1,12 +1,9 @@
 import codeGenerator from '../../utils/generateCode';
 
 class BusinessPartner {
-  constructor() {
-    this.cardCode = codeGenerator();
-  }
-
-  addPartnerInfo(cardName, cardType, groupCode, address, zipCode, mailAddress,
+  constructor(cardName, cardType, groupCode, address, zipCode, mailAddress,
     mailZipCode, phone1, phone2) {
+    this.cardCode = codeGenerator();
     this.cardName = cardName;
     this.cardType = cardType;
     this.groupCode = groupCode;

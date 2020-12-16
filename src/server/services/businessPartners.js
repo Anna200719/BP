@@ -4,10 +4,9 @@ import BusinessPartner from '../dbs/models/businessPartner';
 const getAllParners = () => dbData.businessPartnersDB;
 
 const addNewPartnerByProperties = (partnerProps) => {
-  const bp = new BusinessPartner();
   const allProperties = Object.values(partnerProps);
-  bp.addPartnerInfo(...allProperties);
-  dbData.businessPartnersDB[bp.cardCode] = bp;
+  const bp = new BusinessPartner(...allProperties);
+  dbData.setBusinessPartner(bp);
 };
 
 const addNewPartner = (partner) => {
