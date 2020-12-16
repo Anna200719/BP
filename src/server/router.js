@@ -18,6 +18,7 @@ router.use((req, res, next) => {
 
 router.get('/businesspartners', (req, res) => {
   try {
+    console.log(`Cookies ${(req.cookies)}`);
     const businesspartners = businessPartnersServices.getAllParners();
     res.send(businesspartners);
   } catch (error) {
@@ -27,9 +28,7 @@ router.get('/businesspartners', (req, res) => {
 
 router.post('/businesspartner', (req, res) => {
   try {
-    console.log(`What is in body where card name empty value ${JSON.stringify(req.body[0].value)}`);
-
-    if (req.body[0].value === '') {
+    if (!req.body.cardName) {
       throw new Error('BP shoud contain card name');
     }
 
@@ -67,6 +66,7 @@ router.post('/login', (req, res) => {
     if (req.body.username === logInDetailes.username
           && req.body.password === logInDetailes.password
           && req.body.companyDB === logInDetailes.companyDB) {
+      res.cookie('name', 'express');
       res.status(200).json({ redirect: 'businessPartners.html' });
     } else {
       throw new Error('Invalid login details');

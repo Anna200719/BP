@@ -86,15 +86,26 @@ function addBPartner() {
   $('#businessPartnersTable').hide();
   $('#bp-form').show();
 }
+function adaptFormdata() {
+  const data = {
+    cardName: document.getElementById('card-name').value,
+    cardType: document.getElementById('card-type').value,
+    groupCode: document.getElementById('group-code').value,
+    address: document.getElementById('address').value,
+    zipCode: document.getElementById('zip').value,
+    mailAddress: document.getElementById('mail-address').value,
+    mailZipCode: document.getElementById('mail-zip').value,
+    phone1: document.getElementById('phone1').value,
+    phone2: document.getElementById('phone2').value,
+  };
+  return data;
+}
 
 function submitBPartner() {
-  const formData = JSON.stringify($('#bp-form').serializeArray());
-  console.log(formData);
-
   $.ajax({
     type: 'POST',
     url: '/businesspartner',
-    data: formData,
+    data: JSON.stringify(adaptFormdata()),
     success() {
       $('#bp-form').hide();
     },

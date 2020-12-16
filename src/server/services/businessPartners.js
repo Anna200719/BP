@@ -16,6 +16,7 @@ const addNewPartner = (partner) => {
   // exctracting all properties with values from html-form
   Object.keys(partner).forEach((propIndex) => {
     const property = partner[propIndex];
+    console.log(`What is in property ${(JSON.stringify(property))}`);
     partnerProps[property.name] = property.value;
   });
 
