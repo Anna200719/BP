@@ -1,5 +1,5 @@
 import express from 'express';
-import dbData from './dbs/db';
+import dbService from './dbs/service/dbService';
 import businessPartnersServices from './services/businessPartners';
 
 const router = express.Router();
@@ -10,7 +10,7 @@ const logInDetailes = {
   companyDB: 'SBODEMOUS',
 };
 
-dbData.populateDB();
+dbService.populateDB();
 
 router.use((req, res, next) => {
   next();

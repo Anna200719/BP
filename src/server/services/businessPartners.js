@@ -1,4 +1,5 @@
 import dbData from '../dbs/db';
+import dbService from '../dbs/service/dbService';
 import BusinessPartner from '../dbs/models/businessPartner';
 
 const getAllParners = () => dbData.businessPartnersDB;
@@ -6,7 +7,7 @@ const getAllParners = () => dbData.businessPartnersDB;
 const addNewPartnerByProperties = (partnerProps) => {
   const allProperties = Object.values(partnerProps);
   const bp = new BusinessPartner(...allProperties);
-  dbData.setBusinessPartner(bp);
+  dbService.setBusinessPartner(bp);
 };
 
 const addNewPartner = (partner) => {
