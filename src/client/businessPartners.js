@@ -52,7 +52,7 @@ function buildTable(businessPartners) {
 function deleteBPartner() {
   $.ajax({
     type: 'DELETE',
-    url: '/deletepartner',
+    url: '/partner',
     data: { id_to_delete: state.selectedRow.id },
     success() {
       console.log('removed sucssesfully');
@@ -93,7 +93,7 @@ function submitBPartner() {
 
   $.ajax({
     type: 'POST',
-    url: '/addbusinesspartner',
+    url: '/businesspartner',
     data: formData,
     success() {
       $('#bp-form').hide();
@@ -105,10 +105,10 @@ function submitBPartner() {
     contentType: 'application/json',
   });
 }
-document.getElementById('addBp').addEventListener('click', addBPartner);
-document.getElementById('submitBp').addEventListener('click', submitBPartner);
 
 $(document).ready(() => {
   $('#bp-form').hide();
   $('#businessPartnersTable').hide();
+  document.getElementById('addBp').addEventListener('click', addBPartner);
+  document.getElementById('submitBp').addEventListener('click', submitBPartner);
 });

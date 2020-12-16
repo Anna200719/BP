@@ -25,7 +25,7 @@ router.get('/businesspartners', (req, res) => {
   }
 });
 
-router.post('/addbusinesspartner', (req, res) => {
+router.post('/businesspartner', (req, res) => {
   try {
     console.log(`What is in body where card name empty value ${JSON.stringify(req.body[0].value)}`);
 
@@ -40,7 +40,7 @@ router.post('/addbusinesspartner', (req, res) => {
   }
 });
 
-router.delete('/deletepartner', (req, res) => {
+router.delete('/partner', (req, res) => {
   try {
     const idToDelete = req.body.id_to_delete;
     console.log(`Id to delete ${idToDelete}`);
