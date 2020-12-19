@@ -1,18 +1,14 @@
 import express from 'express';
 import dbService from './dbs/service/dbService';
 import businessPartnersServices from './services/businessPartners';
+import authenticationService from './services/authenticationService';
 
 const router = express.Router();
-
-const logInDetailes = {
-  username: 'manager',
-  password: '1234',
-  companyDB: 'SBODEMOUS',
-};
 
 dbService.populateDB();
 
 router.use((req, res, next) => {
+  // check cookies
   next();
 });
 
@@ -34,6 +30,8 @@ router.post('/businesspartner', (req, res) => {
 
     businessPartnersServices.addNewPartner(req.body);
     res.status(200).json('Partner was added.');
+    // 202
+    // 203
   } catch (error) {
     res.status(409).json(error.message);
   }
@@ -62,17 +60,17 @@ router.delete('/partner', (req, res) => {
 //   };
 
 router.post('/login', (req, res) => {
+  const { username } = req.body;
+  const { password } = req.body;
+  const { companyDB } = req.body;
   try {
-    if (req.body.username === logInDetailes.username
-          && req.body.password === logInDetailes.password
-          && req.body.companyDB === logInDetailes.companyDB) {
-      res.cookie('name', 'express');
-      res.status(200).json({ redirect: 'businessPartners.html' });
-    } else {
-      throw new Error('Invalid login details');
-    }
+    authenticationService.isBasicSymbolValid(username, password, companyDB);
+    authenticationService.authenticateUser(username, password, companyDB);
+    res.cookie('name', 'express');// id i guid
+    res.status(200).json({ redirect: 'businessPartners.html' });
   } catch (error) {
-    res.status(401).json(error);
+    console.log(error.message);
+    res.status(401).json('Invalid login details');
   }
 });
 

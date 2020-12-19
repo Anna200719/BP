@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Log in</title>
 </head>
 
@@ -16,59 +16,65 @@
 
         <div class="col-sm align-self-center">
             <div class="container">
-            <form class="needs-validation" novalidate>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom01">User Name</label>
-                        <input type="text" class="form-control" id="validationCustom01" placeholder="User Name"
-                            value="manager" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                        <div class="invalid-feedback">
-                            Please provide user name.
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom02">Password</label>
-                        <input type="text" class="form-control" id="validationCustom02" placeholder="Password"
-                            value="1234" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                        <div class="invalid-feedback">
-                            Please provide password.
+                <form class="needs-validation" novalidate>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">User Name</label>
+                            <input type="text" class="form-control" id="validationCustom01" placeholder="User Name"
+                                value="manager" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please provide user name.
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom03">CompanyDB</label>
-                        <input type="text" class="form-control" id="validationCustom03" placeholder="companyDB"
-                            value="SBODEMOUS" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                        <div class="invalid-feedback">
-                            Please provide companyDB.
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">Password</label>
+                            <input type="text" class="form-control" id="validationCustom02" placeholder="Password"
+                                value="1234" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please provide password.
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom03">CompanyDB</label>
+                            <input type="text" class="form-control" id="validationCustom03" placeholder="companyDB"
+                                value="SBODEMOUS" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please provide companyDB.
+                            </div>
+                            <div class="invalid-feedback symbol">
+                                Please provide companyDB.
+                            </div>
 
-                <button class="btn btn-primary" id="log-in-btn" type="submit">Log in</button>
-      
-            
-            <div class="alert alert-danger alert-login" style="display:none;" id="message" role="alert">
-                Invalid details, please try again.
-              </div>
-            </form>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" id="log-in-btn" type="submit">Log in</button>
+
+
+                    <div class="alert alert-danger alert-login" style="display:none;" id="message" role="alert">
+                        Invalid details, please try again.
+                    </div>
+                    <div class="alert alert-danger invalid-symbol" type="text" style="display:none;" id="invalid-symbol"
+                        role="alert">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="./index.js"></script>
-
 </html>

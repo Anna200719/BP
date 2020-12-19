@@ -4,10 +4,12 @@
   "description": "",
   "main": "src/server/app.js",
   "type": "module",
+  "src": "milsymbol-2.0.0/src/milsymbol.js",
   "scripts": {
     "start": "node --experimental-modules --es-module-specifier-resolution=node src/server/app.js",
     "test": "mocha --requre esm tests/loadAllContacts.test.js",
     "check": "eslint server/app.js"
+
   },
   "keywords": [],
   "author": "",
